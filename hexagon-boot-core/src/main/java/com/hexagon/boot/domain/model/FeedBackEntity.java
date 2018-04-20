@@ -2,6 +2,9 @@ package com.hexagon.boot.domain.model;
 
 import lombok.*;
 
+/**
+ * 领域实体
+ */
 @Setter
 @Getter
 @NoArgsConstructor

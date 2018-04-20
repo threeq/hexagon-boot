@@ -21,7 +21,7 @@
 
 * `libs` 项目自身所需要的依赖的公共库，比如工具类
 * `core` 包含领域模型 和 应用服务器，实现业务逻辑。core 自己不提供独立运行能力
-* `adapter` 和 `endpoints` 属于适配端点，这里区别是在于 `adapter` 可以独立运行，`endpoints` 不能独立运行
+* `adapter` 和 `endpoints` 属于适配 端口，这里区别是在于 `adapter` 可以独立运行，`endpoints` 不能独立运行。包含 *Facade、Translator* 等
 
 # 运行 demo
 
@@ -30,7 +30,7 @@
 docker-compose up -d
 ```
 
-2. 启动 `adapter-rest` 适配端点
+2. 启动 `adapter-rest` 适配 端口
 ```bash
 ./gradlew bootRun -p hexagon-boot-adapter-rest
 ```

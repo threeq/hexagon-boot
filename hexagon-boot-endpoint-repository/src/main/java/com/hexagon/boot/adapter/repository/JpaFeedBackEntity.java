@@ -1,12 +1,16 @@
-package com.hexagon.boot.endpoints.repository;
+package com.hexagon.boot.adapter.repository;
 
 import com.hexagon.boot.domain.model.FeedBackEntity;
 
 import javax.persistence.*;
 
+/**
+ * 资源库自己存储所需要的的 数据类型
+ * 不会暴露到外边
+ */
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class JpaFeedBackEntity extends FeedBackEntity {
+class JpaFeedBackEntity extends FeedBackEntity {
     public JpaFeedBackEntity(){}
     public JpaFeedBackEntity(FeedBackEntity var1) {
         super(var1);

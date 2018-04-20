@@ -1,4 +1,5 @@
 
 dependencies {
     compile(project(":hexagon-boot-libs"))
+    compile("org.springframework:spring-context")
 }

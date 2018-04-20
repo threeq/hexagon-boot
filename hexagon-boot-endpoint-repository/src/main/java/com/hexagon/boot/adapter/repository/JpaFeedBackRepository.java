@@ -1,4 +1,4 @@
-package com.hexagon.boot.endpoints.repository;
+package com.hexagon.boot.adapter.repository;
 
 import com.hexagon.boot.domain.model.FeedBackEntity;
 import com.hexagon.boot.domain.model.FeedBackRepository;
@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 资源库依赖实现
+ */
 @Repository
 public class JpaFeedBackRepository implements FeedBackRepository<JpaFeedBackEntity> {
     @Autowired

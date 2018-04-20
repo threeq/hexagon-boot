@@ -1,4 +1,4 @@
-package com.hexagon.boot.endpoints.rest.config;
+package com.hexagon.boot.adapter.rest.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

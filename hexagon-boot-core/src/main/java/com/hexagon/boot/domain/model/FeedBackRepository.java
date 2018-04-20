@@ -2,6 +2,13 @@ package com.hexagon.boot.domain.model;
 
 import java.util.List;
 
+/**
+ * TODO 目前还在优化 存储的定义和使用规范
+ *
+ * 领域模型 自身是需要存储的，所以存储所需要的服务接口定义在 领域模型内部
+ * 但是实现由于和具体技术相关，放入 端口适配层
+ * @param <S>
+ */
 public interface FeedBackRepository<S extends FeedBackEntity> {
     FeedBackEntity save(FeedBackEntity var1);
 
