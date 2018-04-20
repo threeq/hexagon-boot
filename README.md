@@ -30,7 +30,7 @@
 docker-compose up -d
 ```
 
-2. 启动 `adapter-resst` 适配端点
+2. 启动 `adapter-rest` 适配端点
 ```bash
 ./gradlew bootRun -p hexagon-boot-adapter-rest
 ```
