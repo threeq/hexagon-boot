@@ -1,0 +1,115 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+        springCloudVersion = 'Finchley.M8'
+        springCloudStreamVersion = 'Elmhurst.RC3'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://repo.spring.io/milestone" }
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE")
+        classpath('org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC3')
+    }
+}
+
+group 'hexagon-boot'
+version '1.0'
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.junit.platform.gradle.plugin'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'https://repo.spring.io/release/' }
+        maven { url 'https://repo.spring.io/libs-milestone' }
+        jcenter()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-stream-dependencies:${springCloudStreamVersion}"
+        }
+    }
+
+    configurations {
+        all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+
+    dependencies {
+        compileOnly('org.projectlombok:lombok')
+        compile('org.springframework.boot:spring-boot-starter-undertow')
+
+        testCompile group: 'junit', name: 'junit'
+    }
+}
+
+configure(subprojects.findAll {
+    !it.name.contains("-adapter-")
+}) {
+    jar.enabled = true
+}
+
+configure(subprojects.findAll {
+    it.name.contains("-adapter-")
+}) {
+    apply plugin: 'docker'
+
+    task buildDocker(type: Docker, dependsOn: build) {
+        push = false
+        baseImage = 'java:8-jre-alpine'
+        maintainer = 'changyi uc <uc@vchangyi.com>'
+        applicationName = jar.baseName
+        def dockerRepo = "${System.env.DOCKER_REPO}"
+        tag = "${dockerRepo}/app/${project.group}/${applicationName}"
+
+        dockerfile = file("../Dockerfile")
+
+        doFirst {
+            copy {
+                from jar
+                into stageDir
+                rename { "app.jar" }
+            }
+        }
+    }
+
+    task pushDocker(type: Exec, dependsOn: [buildDocker]) {
+        def dockerRepo = "${System.env.DOCKER_REPO}"
+
+        doFirst {
+            def tag = "${dockerRepo}/app/${project.group}/${project.name}"
+            def tagVersion = "${project.version!='unspecified'? project.version: 'latest'}"
+
+            println "push version: ${tag}:${tagVersion}"
+            commandLine 'docker', 'push', "${tag}:${tagVersion}"
+        }
+    }
+
+    task cleanDocker(type:Exec) {
+        def dockerRepo = "${System.env.DOCKER_REPO}"
+
+        doFirst {
+            def tag = "${dockerRepo}/app/${project.group}/${project.name}"
+            def tagVersion = "${project.version!='unspecified'? project.version: 'latest'}"
+
+            println "clean version: ${tag}:${tagVersion}"
+            commandLine 'docker', 'rmi', "${tag}:${tagVersion}"
+        }
+    }
+}

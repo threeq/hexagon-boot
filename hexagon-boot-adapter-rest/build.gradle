@@ -1,0 +1,13 @@
+dependencies {
+
+    compile(project(":hexagon-boot-core"))
+    compile(project(":hexagon-boot-endpoint-repository"))
+
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('javax.servlet:javax.servlet-api')
+    compile("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')
+    compile('org.springframework.cloud:spring-cloud-starter-openfeign')
+}

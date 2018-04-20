@@ -1,0 +1,66 @@
+server:
+    port: ${PORT:8080}
+    compression:
+        enabled: true
+    servlet:
+      path: / # service-feedback
+management:
+  health:
+    rabbit:
+      enabled: false
+
+spring:
+    application:
+        name: hexagon-boot-endpoints-rest
+    cloud:
+        bus:
+            enabled: false
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/test-feedback?characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: root
+        password: toor
+    jpa:
+        show-sql: true
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        hibernate:
+            ddl-auto: create # create  # validate
+
+        properties:
+            hibernate.dialect.storage_engine: innodb
+            hibernate.use_nationalized_character_data: utf8mb4
+
+opentracing:
+    spring:
+        cloud:
+            websocket:
+                enabled: false
+            feign:
+                enabled: false
+
+logging:
+    pattern:
+        level: <%X{RequestId}> %5p
+#    level:
+#        root: debug
+
+---
+spring:
+  profiles: prod
+  datasource:
+      url: jdbc:mysql://10.66.140.228:3306/db-feedback?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: db_feedback
+      password: u64zcT!#8q496L&*
+  jpa:
+      hibernate:
+          ddl-auto: validate # create  # validate
+---
+spring:
+  profiles: test
+  datasource:
+      url: jdbc:mysql://58003c649ab7a.sh.cdb.myqcloud.com:8208/test-feedback?characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: cdb_outerroot
+      password: changyi@2016
+  jpa:
+      hibernate:
+          ddl-auto: create # create  # validate
