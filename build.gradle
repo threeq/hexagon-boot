@@ -60,13 +60,13 @@ subprojects {
 }
 
 configure(subprojects.findAll {
-    !it.name.contains("-adapter-")
+    ! it.name.contains("-endpoint-")
 }) {
     jar.enabled = true
 }
 
 configure(subprojects.findAll {
-    it.name.contains("-adapter-")
+    it.name.contains("-endpoint-")
 }) {
     apply plugin: 'docker'
 

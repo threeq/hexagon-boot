@@ -1,8 +1,8 @@
 dependencies {
 
     compile(project(":hexagon-boot-core"))
-    compile(project(":hexagon-boot-endpoint-repository"))
-    compile(project(":hexagon-boot-endpoint-other-domain"))
+    compile(project(":hexagon-boot-adapter-repository"))
+    compile(project(":hexagon-boot-adapter-other-domain"))
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile('org.springframework.boot:spring-boot-starter-web')
