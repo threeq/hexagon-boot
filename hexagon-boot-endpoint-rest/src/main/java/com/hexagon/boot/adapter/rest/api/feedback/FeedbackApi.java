@@ -2,7 +2,7 @@ package com.hexagon.boot.adapter.rest.api.feedback;
 
 import com.hexagon.boot.application.feedback.FeedbackAppService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.hexagon.boot.domain.model.FeedBackEntity;
+import com.hexagon.boot.domain.feedback.model.FeedBackEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,11 +27,6 @@ public class FeedbackApi {
     @GetMapping("/v1/report/error")
     public Iterable<FeedBackEntity> feedbackList() {
         return feedbackAppService.findAll();
-    }
-
-    @GetMapping("/v1/report/error/{id}")
-    public FeedBackEntity getById(@PathVariable("id") Long id) {
-        return feedbackAppService.getById(id);
     }
 
     /**

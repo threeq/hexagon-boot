@@ -1,5 +1,6 @@
-package com.hexagon.boot.domain.model;
+package com.hexagon.boot.domain.feedback.model;
 
+import com.hexagon.boot.domain.BaseEntity;
 import lombok.*;
 
 /**
@@ -8,8 +9,7 @@ import lombok.*;
 @Setter
 @Getter
 @NoArgsConstructor
-public class FeedBackEntity {
-    Long id;
+public class FeedBackEntity extends BaseEntity {
 
     String referer;
     String appType;
@@ -23,7 +23,7 @@ public class FeedBackEntity {
     Long   errorRequestTime;
 
     public FeedBackEntity(FeedBackEntity var1) {
-        this.id = var1.getId();
+        super(var1);
         this.referer = var1.getReferer();
         this.appType = var1.getAppType();
         this.userAgent = var1.getUserAgent();
@@ -41,8 +41,8 @@ public class FeedBackEntity {
 //        this.repository = repository;
 //    }
 //
-//    public void save() {
-//        repository.save(this);
+//    public void register() {
+//        repository.register(this);
 //    }
 
 }

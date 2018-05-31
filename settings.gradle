@@ -7,7 +7,5 @@ include 'hexagon-boot-adapter-repository'   // 端口适配器：jpa 存储
 
 /*
   结构
-
- */
-include 'hexagon-boot-adapter-other-domain'
+*/
 

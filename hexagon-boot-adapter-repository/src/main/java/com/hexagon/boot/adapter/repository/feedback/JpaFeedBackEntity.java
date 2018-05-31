@@ -1,6 +1,7 @@
-package com.hexagon.boot.adapter.repository;
+package com.hexagon.boot.adapter.repository.feedback;
 
-import com.hexagon.boot.domain.model.FeedBackEntity;
+
+import com.hexagon.boot.domain.feedback.model.FeedBackEntity;
 
 import javax.persistence.*;
 
@@ -9,19 +10,7 @@ import javax.persistence.*;
  * 不会暴露到外边
  */
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
 class JpaFeedBackEntity extends FeedBackEntity {
-    public JpaFeedBackEntity(){}
-    public JpaFeedBackEntity(FeedBackEntity var1) {
-        super(var1);
-    }
-
-    @Override
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    public Long getId() {
-        return super.getId();
-    }
 
     @Override
     public Long getErrorRequestTime() {
@@ -71,5 +60,35 @@ class JpaFeedBackEntity extends FeedBackEntity {
     @Override
     public String getErrorResponse() {
         return super.getErrorResponse();
+    }
+
+    public JpaFeedBackEntity() {
+        super();
+    }
+
+    public JpaFeedBackEntity(FeedBackEntity var1) {
+        super(var1);
+    }
+
+    @Override
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    public Long getId() {
+        return super.getId();
+    }
+
+    @Override
+    public Long getCreated() {
+        return super.getCreated();
+    }
+
+    @Override
+    public Long getUpdated() {
+        return super.getUpdated();
+    }
+
+    @Override
+    public int getState() {
+        return super.getState();
     }
 }

@@ -1,4 +1,4 @@
-package com.hexagon.boot.adapter.repository;
+package com.hexagon.boot.adapter.repository.feedback;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,0 +1,1 @@
+package com.hexagon.boot.domain.administrator;
