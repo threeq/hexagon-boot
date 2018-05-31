@@ -73,7 +73,7 @@ configure(subprojects.findAll {
     task buildDocker(type: Docker, dependsOn: build) {
         push = false
         baseImage = 'java:8-jre-alpine'
-        maintainer = 'changyi uc <uc@vchangyi.com>'
+        maintainer = 'Threeq<threeq@formail.com>'
         applicationName = jar.baseName
         def dockerRepo = "${System.env.DOCKER_REPO}"
         tag = "${dockerRepo}/app/${project.group}/${applicationName}"
