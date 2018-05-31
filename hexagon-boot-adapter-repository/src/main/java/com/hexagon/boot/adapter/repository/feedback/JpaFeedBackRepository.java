@@ -17,7 +17,7 @@ public class JpaFeedBackRepository extends JpaBaseRepositoryImpl<FeedBackEntity,
         implements FeedBackRepository {
 
     @Autowired
-    private void setJpaUserRepositoryFacade(JpaFeedBackRepositoryFacade jpaFeedBackRepositoryFacade) {
+    private void setJpaRepositoryFacade(JpaFeedBackRepositoryFacade jpaFeedBackRepositoryFacade) {
         this.jpaCrudRepository = jpaFeedBackRepositoryFacade;
     }
 

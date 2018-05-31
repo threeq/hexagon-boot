@@ -2,14 +2,15 @@ package com.hexagon.boot.adapter.repository;
 
 import com.hexagon.boot.domain.BaseEntity;
 import com.hexagon.boot.domain.BaseRepository;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class JpaBaseRepositoryImpl<E extends BaseEntity, D extends E> implements BaseRepository<E> {
-    protected CrudRepository<D, Long> jpaCrudRepository;
+    protected JpaBaseRepositoryFacade<D, Long> jpaCrudRepository;
 
     protected abstract D translateDao(E entity);
     protected abstract E translateEntity(D dao);

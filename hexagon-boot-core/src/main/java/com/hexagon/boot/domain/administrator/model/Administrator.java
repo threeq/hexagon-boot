@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Optional;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -41,18 +43,14 @@ public class Administrator extends BaseEntity {
     }
 
     private boolean checkEmail(AdministratorRepository administratorRepository) throws MobilePhoneExistException {
-        Administrator admini = administratorRepository.findById(this.getId());
-        if(admini!=null) {
-            throw new MobilePhoneExistException();
-        }
+        Optional<Administrator> admin = administratorRepository.findByEmail(this.getEmail());
+        admin.orElseThrow(MobilePhoneExistException::new);
         return true;
     }
 
     private boolean checkMobilePhone(AdministratorRepository administratorRepository) throws EmailExistException {
-        Administrator admini = administratorRepository.findById(this.getId());
-        if(admini!=null) {
-            throw new EmailExistException();
-        }
+        Optional<Administrator> admin = administratorRepository.findByMobilePhone(this.getMobilePhone());
+        admin.orElseThrow(EmailExistException::new);
         return true;
     }
 }
