@@ -13,6 +13,9 @@ public interface BaseRepository<E extends BaseEntity> {
 
     List<E> findAll();
 
+//    TODO 对于条件组合，还没有想好有什么公共方法
+//    List<E> findAllByParams(Map<String, Object> params);
+
     List<E> findAllById(Iterable<Long> ids);
 
     long count();

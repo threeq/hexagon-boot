@@ -44,7 +44,7 @@ public class JpaAdministratorRepository
             predicates.add(criteriaBuilder.equal(root.<String>get("mobilePhone"), mobilePhone));
 
             return query.where(predicates.toArray(new Predicate[0])).getRestriction();
-        }).map(Administrator::new);
+        }).map(this::translateEntity);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class JpaAdministratorRepository
             predicates.add(criteriaBuilder.equal(root.<String>get("email"), email));
 
             return query.where(predicates.toArray(new Predicate[0])).getRestriction();
-        }).map(Administrator::new);
+        }).map(this::translateEntity);
     }
 }

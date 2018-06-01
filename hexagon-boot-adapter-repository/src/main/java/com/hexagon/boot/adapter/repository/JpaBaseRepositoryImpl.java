@@ -2,11 +2,15 @@ package com.hexagon.boot.adapter.repository;
 
 import com.hexagon.boot.domain.BaseEntity;
 import com.hexagon.boot.domain.BaseRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.domain.Specification;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public abstract class JpaBaseRepositoryImpl<E extends BaseEntity, D extends E> implements BaseRepository<E> {
