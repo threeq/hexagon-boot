@@ -1,4 +1,4 @@
-package com.hexagon.test;
+package com.hexagon.boot.adapter;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
