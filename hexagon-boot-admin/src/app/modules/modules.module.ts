@@ -9,7 +9,7 @@ import {
   MatGridListModule,
   MatIconModule,
   MatListModule,
-  MatMenuModule, MatSidenavModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatSortModule
+  MatMenuModule, MatSidenavModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatTreeModule
 } from "@angular/material";
 import { TableComponent } from './table/table.component';
 import {FuncViewComponent} from "../@views/func/func-view.component";
@@ -39,7 +39,8 @@ const PAGES_COMPONENTS = [
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatTreeModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
