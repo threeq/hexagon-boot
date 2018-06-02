@@ -12,16 +12,11 @@ import {
   MatMenuModule, MatSidenavModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatTreeModule
 } from "@angular/material";
 import { TableComponent } from './table/table.component';
-import {FuncViewComponent} from "../@views/func/func-view.component";
-import {NavbarComponent} from "../@common/navbar/navbar.component";
-import {SidenavComponent} from "../@common/sidenav/sidenav.component";
+import {FuncViewModule} from "../@views/func/func-view.module";
 
 
 const PAGES_COMPONENTS = [
   DashboardComponent,
-  FuncViewComponent,
-  NavbarComponent,
-  SidenavComponent
 ];
 
 @NgModule({
@@ -40,7 +35,9 @@ const PAGES_COMPONENTS = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTreeModule
+    MatTreeModule,
+
+    FuncViewModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
