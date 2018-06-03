@@ -1,0 +1,47 @@
+<div class="nav-bar">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <div class="menu-group">
+        <span>Hexagon Admin UI</span>
+      </div>
+
+      <div class="menu-group right">
+        <a class="nav-bar-button" mat-button [matMenuTriggerFor]="langMenu">{{'language' | translate}}</a>
+
+        <mat-menu #langMenu="matMenu" yPosition="below" [overlapTrigger]="false">
+          <button mat-menu-item *ngFor="let lang of translate.getLangs()"
+                  (click)="changeLang(lang)">{{lang | translate}}
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="login-card-container">
+  <mat-card class="login-card">
+    <mat-card-content class="login-card-content">
+      <div>
+        <img src="./assets/iamges/logo.png">
+      </div>
+
+      <mat-form-field>
+        <input matInput placeholder="{{'login-name-placeholder' | translate}}"
+               [formControl]="loginName" required>
+        <mat-error *ngIf="loginName.invalid">{{getErrorMessage(loginName) | translate}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="{{'login-pwd-placeholder' | translate}}"
+               [formControl]="passWord" required>
+        <mat-error *ngIf="passWord.invalid">{{getErrorMessage(passWord) | translate}}</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" class="btn-login">{{'Login' | translate}}</button>
+
+      <div class="login-help-info">
+        <a class="login-help" (click)="gotoHelp()">{{'login-help' | translate}}</a>
+        <a class="login-forget-pwd" (click)="forgetPwd()">{{'forget-pwd' | translate}}</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   { path: 'modules', loadChildren: './modules/modules.module#ModulesModule' },
+  { path: 'login', loadChildren: './modules/login/login.module#LoginModule' },
   { path: '', redirectTo: 'modules', pathMatch: 'full' },
-  { path: '**', redirectTo: 'modules' },
+  // { path: '**', redirectTo: 'modules' },
 ];
 
 const config: ExtraOptions = {

@@ -13,6 +13,7 @@ import {
 } from "@angular/material";
 import { TableComponent } from './table/table.component';
 import {FuncViewModule} from "../@views/func/func-view.module";
+import {LoginModule} from "./login/login.module";
 
 
 const PAGES_COMPONENTS = [
@@ -37,7 +38,8 @@ const PAGES_COMPONENTS = [
     MatSortModule,
     MatTreeModule,
 
-    FuncViewModule
+    FuncViewModule,
+    LoginModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,

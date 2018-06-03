@@ -1,5 +1,16 @@
 {
   "language":"语言",
   "zh-CN": "中文",
-  "en":"英文"
+  "en":"英文",
+
+  "Login": "登录",
+  "login-help":"需要帮助？",
+  "forget-pwd":"忘记密码？",
+  "login-name-placeholder": "输入 登录名/邮箱/手机号",
+  "login-pwd-placeholder": "输入密码",
+
+
+  "error-required": "必须输入一个值",
+  "error-email": "邮箱格式错误",
+  "error-length": "数据长度不对"
 }
