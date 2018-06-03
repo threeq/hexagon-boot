@@ -12,6 +12,7 @@ import {
 } from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
+import {ApiModule} from "../@common/api/api.module";
 
 @NgModule({
   imports: [
@@ -30,7 +31,9 @@ import {TranslateModule} from "@ngx-translate/core";
       {
         path: '**',
         component: LoginComponent,
-      }])
+      }]),
+
+    ApiModule
   ],
   exports: [RouterModule],
   declarations: [LoginComponent]

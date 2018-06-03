@@ -9,6 +9,10 @@ public class CodeException extends Exception {
         this.code = code;
     }
 
+    public Code code() {
+        return code;
+    }
+
     @Override
     public String toString() {
         return "[" + code.val() + "] "+code.desc();

@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface AdministratorRepository extends BaseRepository<Administrator> {
     Optional<Administrator> findByMobilePhone(String mobilePhone);
     Optional<Administrator> findByEmail(String Email);
+
+    Optional<Administrator> findByNameAndPwd(String name, String pwd);
 }

@@ -26,17 +26,20 @@
 
       <mat-form-field>
         <input matInput placeholder="{{'login-name-placeholder' | translate}}"
+               [(ngModel)]="name"
                [formControl]="loginName" required>
         <mat-error *ngIf="loginName.invalid">{{getErrorMessage(loginName) | translate}}</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <input matInput placeholder="{{'login-pwd-placeholder' | translate}}"
+               [(ngModel)]="pwd"
                [formControl]="passWord" required>
         <mat-error *ngIf="passWord.invalid">{{getErrorMessage(passWord) | translate}}</mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="accent" class="btn-login">{{'Login' | translate}}</button>
+      <button mat-raised-button color="accent" class="btn-login"
+              (click)="doLogin()">{{'Login' | translate}}</button>
 
       <div class="login-help-info">
         <a class="login-help" (click)="gotoHelp()">{{'login-help' | translate}}</a>

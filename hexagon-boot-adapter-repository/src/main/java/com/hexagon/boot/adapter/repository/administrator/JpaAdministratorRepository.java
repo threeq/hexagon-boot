@@ -57,4 +57,16 @@ public class JpaAdministratorRepository
             return query.where(predicates.toArray(new Predicate[0])).getRestriction();
         }).map(this::translateEntity);
     }
+
+    @Override
+    public Optional<Administrator> findByNameAndPwd(String name, String pwd) {
+        return this.jpaCrudRepository.findOne((Specification<JpaAdministrator>) (root, query, criteriaBuilder) -> {
+            List<Predicate> predicates = new ArrayList<>();
+
+            predicates.add(criteriaBuilder.equal(root.<String>get("name"), name));
+            predicates.add(criteriaBuilder.equal(root.<String>get("pwd"), pwd));
+
+            return query.where(predicates.toArray(new Predicate[0])).getRestriction();
+        }).map(this::translateEntity);
+    }
 }

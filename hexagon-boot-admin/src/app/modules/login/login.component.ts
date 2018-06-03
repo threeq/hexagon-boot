@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
-import {ErrorStateMatcher} from "@angular/material";
+import {FormControl, Validators} from "@angular/forms";
 import {TranslateService} from "@ngx-translate/core";
+import {SystemApiService} from "../@common/api/system-api.service";
+import {ResponseEntity} from "../@common/api/base-api";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,14 @@ export class LoginComponent implements OnInit {
     Validators.required,
     Validators.minLength(6)]);
 
-  constructor(private translate: TranslateService) { }
+  private name: string;
+  private pwd: string;
+
+  constructor(private translate: TranslateService,
+              private systemApi: SystemApiService,
+              private route: Router) { }
+
+  ngOnInit() { }
 
   changeLang(lang) {
     console.log("Using language: " + lang);
@@ -32,15 +41,24 @@ export class LoginComponent implements OnInit {
         '';
   }
 
-  ngOnInit() {
-  }
-
   gotoHelp() {
 
   }
 
   forgetPwd() {
 
+  }
+
+  doLogin() {
+    this.systemApi.login(this.name, this.pwd).subscribe((data)=>{
+      console.log("login result: ", data);
+
+      if(this.systemApi.checkOK(<ResponseEntity>data)) {
+        this.route.navigateByUrl("/modules/dashboard");
+      } else {
+        console.log("login error")
+      }
+    })
   }
 }
 

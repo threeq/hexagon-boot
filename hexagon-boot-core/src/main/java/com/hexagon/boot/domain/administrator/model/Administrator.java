@@ -3,6 +3,7 @@ package com.hexagon.boot.domain.administrator.model;
 import com.hexagon.boot.domain.BaseEntity;
 import com.hexagon.boot.domain.administrator.model.exception.EmailExistException;
 import com.hexagon.boot.domain.administrator.model.exception.MobilePhoneExistException;
+import com.hexagon.boot.domain.administrator.model.exception.NameOrPwdErrorException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -52,5 +53,11 @@ public class Administrator extends BaseEntity {
         Optional<Administrator> admin = administratorRepository.findByMobilePhone(this.getMobilePhone());
         admin.orElseThrow(EmailExistException::new);
         return true;
+    }
+
+    public Administrator checkPwdByName(String name, String pwd, AdministratorRepository administratorRepository) throws NameOrPwdErrorException {
+        Optional<Administrator> result = administratorRepository.findByNameAndPwd(name, pwd);
+        result.orElseThrow(NameOrPwdErrorException::new);
+        return result.get();
     }
 }

@@ -15,7 +15,8 @@ public enum Code implements IEnum<Integer, String> {
     TICKET_HAD_OVERDUE(500, "ticket had overdue"),
 
     MOBILE_PHONE_EXIST(400, "mobile phone exist"),
-    EMAIL_EXIST(400, "email esist");
+    EMAIL_EXIST(400, "email exist"),
+    NAME_OR_PWD_ERROR(400, "name or pwd error");
 
     private Integer value;
     private String desc;

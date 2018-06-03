@@ -26,4 +26,5 @@ public class AdministratorApi {
     public Administrator save(Administrator administrator) throws MobilePhoneExistException, EmailExistException {
         return administratorAppService.register(administrator);
     }
+
 }
