@@ -10,6 +10,7 @@ import {FuncViewComponent} from "./func-view.component";
 import {NavbarComponent} from "../../@common/navbar/navbar.component";
 import {SidenavComponent} from "../../@common/sidenav/sidenav.component";
 import {RouterModule} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {RouterModule} from "@angular/router";
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatTreeModule
+    MatTreeModule,
+    TranslateModule
   ],
   declarations: [
     FuncViewComponent,

@@ -1,6 +1,23 @@
-# HexagonBootAdmin
+# Hexagon Boot Admin UI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+
+## TODO
+
+| function             | state |
+| -------------------- | ----- |
+| Language             | Done. |
+| Login Page           |       |
+| Administrator Manage |       |
+| Role Manage          |       |
+| SideNav Menu         |       |
+| Docker Deploy        |       |
+
+
+
+## History
+
+### v0.1
 
 ## Development server
 
