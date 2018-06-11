@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
-import {TranslateService} from "@ngx-translate/core";
 import {SystemApiService} from "../@common/api/system-api.service";
 import {ResponseEntity} from "../@common/api/base-api";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-login',
@@ -23,41 +23,43 @@ export class LoginComponent implements OnInit {
   private name: string;
   private pwd: string;
 
-  constructor(private translate: TranslateService,
-              private systemApi: SystemApiService,
-              private route: Router) { }
+  constructor(private systemApi: SystemApiService,
+              private snackBar: MatSnackBar,
+              private route: Router) {
+  }
 
-  ngOnInit() { }
-
-  changeLang(lang) {
-    console.log("Using language: " + lang);
-    this.translate.use(lang);
+  ngOnInit() {
   }
 
   getErrorMessage(field) {
     return field.hasError('required') ? 'error-required' :
       field.hasError('email') ? 'error-email' :
-      field.hasError('minlength') ? 'error-length' :
-        '';
+        field.hasError('minlength') ? 'error-length' :
+          '';
   }
 
   gotoHelp() {
 
   }
 
-  forgetPwd() {
-
-  }
-
   doLogin() {
-    this.systemApi.login(this.name, this.pwd).subscribe((data)=>{
+    this.systemApi.login(this.name, this.pwd).subscribe((data) => {
       console.log("login result: ", data);
 
-      if(this.systemApi.checkOK(<ResponseEntity>data)) {
+      if (this.systemApi.checkOK(<ResponseEntity>data)) {
         this.route.navigateByUrl("/modules/dashboard");
       } else {
-        console.log("login error")
+        this.snackBar.open("login error", "OK", {
+          duration: 2000,
+        });
+        this.route.navigateByUrl("/modules/dashboard");
       }
+    }, (error) => {
+      console.log("接口错误", error);
+      this.snackBar.open("接口错误", "OK", {
+        duration: 2000,
+      });
+      this.route.navigateByUrl("/modules/dashboard");
     })
   }
 }

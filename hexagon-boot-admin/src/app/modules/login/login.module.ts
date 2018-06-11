@@ -7,12 +7,14 @@ import {
   MatCardModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
-  MatMenuModule,
+  MatMenuModule, MatSnackBarModule,
   MatToolbarModule
 } from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 import {ApiModule} from "../@common/api/api.module";
+import { ForgetPwdComponent } from './forget-pwd/forget-pwd.component';
+import { LoginHeaderComponent } from './login-header/login-header.component';
 
 @NgModule({
   imports: [
@@ -24,18 +26,22 @@ import {ApiModule} from "../@common/api/api.module";
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
     RouterModule.forChild([
       {
-        path: '**',
+        path: '',
         component: LoginComponent,
+      },{
+        path: 'forget-pwd',
+        component: ForgetPwdComponent,
       }]),
 
     ApiModule
   ],
   exports: [RouterModule],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent, ForgetPwdComponent, LoginHeaderComponent]
 })
 export class LoginModule { }
