@@ -1,0 +1,28 @@
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+//    compile("org.slf4j:slf4j-api")  // :1.7.25
+    compile("org.aspectj:aspectjweaver")  // :1.7.25
+    compile("org.springframework:spring-web")  // :1.7.25
+    compile("org.springframework:spring-aop")  // :1.7.25
+
+
+    // 基础组件
+    compile('javax.servlet:javax.servlet-api')
+    compile("org.redisson:redisson:3.5.0")
+    compile("org.msgpack:jackson-dataformat-msgpack:0.8.15")
+    compile("org.springframework.boot:spring-boot-starter-cache")
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
+    // Java Redis client
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0', transitive: false, { ext { fatJarExclude = false } }
+    // Apache Commons-Pool2 for Jedis pooling
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.5.0', transitive: false, { ext { fatJarExclude = false } }
+
+    compile("org.apache.curator:curator-client:4.0.1")
+
+    testCompile('org.awaitility:awaitility:3.1.0')
+
+    testCompile('org.springframework.boot:spring-boot-starter-web')
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+
+}

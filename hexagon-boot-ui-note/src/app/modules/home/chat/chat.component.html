@@ -1,0 +1,20 @@
+<div class="chat">
+  <mat-card class="message-panel">
+    <ul #messageContainer >
+      <li *ngFor="let item of messageService.messageList(); index as i;">
+        {{i}}  --> {{item.time | date :'yyyy-MM-dd HH:mm:ss'}} :{{item.message}}
+      </li>
+    </ul>
+    <span #messageBottom>&nbsp;</span>
+  </mat-card>
+
+
+  <div class="input-panel">
+    <mat-form-field class="full-width">
+    <textarea #box matInput placeholder="记录你的想法" autofocus
+              (keyup.enter)="commitMessage(box);"></textarea>
+    </mat-form-field>
+  </div>
+
+
+</div>

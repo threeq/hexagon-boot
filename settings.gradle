@@ -1,11 +1,13 @@
 rootProject.name = 'hexagon-boot'
 
 include 'hexagon-boot-libs'                 // 公共库
-include 'hexagon-boot-core'                 // 领域中心
+include 'hexagon-boot-domain-sys'                 // 领域中心
 include 'hexagon-boot-endpoint-rest'         // 端口适配器：rest 接口风格
-include 'hexagon-boot-adapter-repository'   // 端口适配器：jpa 存储
+include 'hexagon-boot-adapter-repository-jpa'   // 端口适配器：jpa 存储
 
 /*
   结构
 */
+include 'hexagon-boot-adapter-repository-mybatis'
+include 'hexagon-boot-tools'
 

@@ -1,0 +1,11 @@
+jar.enabled = true
+
+dependencies {
+    compile(project(":hexagon-boot-domain-sys"))
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('mysql:mysql-connector-java')
+    compile('org.flywaydb:flyway-core')
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("com.h2database:h2")
+}

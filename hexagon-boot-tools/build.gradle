@@ -1,0 +1,6 @@
+version = '1.0.0'
+
+dependencies {
+    compile("org.slf4j:slf4j-api")
+    compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.7'
+}
