@@ -32,7 +32,7 @@ docker-compose up -d
 
 2. 启动 `adapter-rest` 适配 端口
 ```bash
-./gradlew bootRun -p hexagon-boot-adapter-rest
+./gradlew bootRun -p hexagon-boot-endpoint-rest
 ```
 
 3. 测试服务
