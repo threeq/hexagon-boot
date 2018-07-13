@@ -40,7 +40,7 @@ public class Administrator extends BaseEntity {
             }
         }
 
-        return administratorRepository.save(this);
+        return administratorRepository.write(this);
     }
 
     private boolean checkEmail(AdministratorRepository administratorRepository) throws MobilePhoneExistException {

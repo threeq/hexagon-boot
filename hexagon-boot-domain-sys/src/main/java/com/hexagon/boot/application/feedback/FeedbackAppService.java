@@ -16,7 +16,7 @@ public class FeedbackAppService {
     FeedBackRepository repository;
 
     public FeedBackEntity save(FeedBackEntity feedBackEntity) {
-        return repository.save(feedBackEntity);
+        return repository.write(feedBackEntity);
     }
 
     public Iterable<FeedBackEntity> findAll() {

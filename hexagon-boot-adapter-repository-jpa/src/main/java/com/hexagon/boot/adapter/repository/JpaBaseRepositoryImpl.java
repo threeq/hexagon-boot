@@ -20,12 +20,20 @@ public abstract class JpaBaseRepositoryImpl<E extends BaseEntity, D extends E> i
     protected abstract E translateEntity(D dao);
 
     @Override
-    public E save(E entity) {
+    public E insert(E entity) {
+        return jpaCrudRepository.save(translateDao(entity));
+    }
+    @Override
+    public E update(E entity) {
+        return jpaCrudRepository.save(translateDao(entity));
+    }
+    @Override
+    public E write(E entity) {
         return jpaCrudRepository.save(translateDao(entity));
     }
 
     @Override
-    public List<E> saveAll(List<E> var1) {
+    public List<E> insertAll(List<E> var1) {
         List<E> target = new ArrayList<>();
         jpaCrudRepository.saveAll(var1.stream()
                 .map(this::translateDao)
@@ -64,7 +72,7 @@ public abstract class JpaBaseRepositoryImpl<E extends BaseEntity, D extends E> i
     }
 
     @Override
-    public List<E> findAllById(Iterable<Long> ids) {
+    public List<E> findAllByIds(Iterable<Long> ids) {
         List<E> target = new ArrayList<>();
         jpaCrudRepository.findAllById(ids).forEach(target::add);
         return target;
