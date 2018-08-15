@@ -1,4 +1,4 @@
-package com.hexagon.boot.application.administrator;
+package com.hexagon.boot.domain.administrator;
 
 import com.hexagon.boot.domain.administrator.model.Administrator;
 import com.hexagon.boot.domain.administrator.model.AdministratorRepository;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdministratorAppService {
+public class AdministratorApplicationService {
 
     @Autowired
     private AdministratorRepository administratorRepository;

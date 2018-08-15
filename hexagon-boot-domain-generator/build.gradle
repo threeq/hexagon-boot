@@ -1,0 +1,9 @@
+
+dependencies {
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
+    compile group: 'org.eclipse.jdt', name: 'org.eclipse.jdt.core', version: '3.14.0'
+    compile group: 'org.eclipse.platform', name: 'org.eclipse.jface.text', version: '3.13.0'
+
+    testCompile('org.projectlombok:lombok')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

@@ -88,7 +88,7 @@ class JpaFeedBackEntity extends FeedBackEntity {
     }
 
     @Override
-    public int getState() {
-        return super.getState();
+    public Boolean getActive() {
+        return super.getActive();
     }
 }

@@ -14,6 +14,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Repository
@@ -69,4 +70,5 @@ public class JpaAdministratorRepository
             return query.where(predicates.toArray(new Predicate[0])).getRestriction();
         }).map(this::translateEntity);
     }
+
 }

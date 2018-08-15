@@ -1,0 +1,10 @@
+
+version='1.0'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-batch')
+    compile('org.springframework.boot:spring-boot-starter-quartz')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.batch:spring-batch-test')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

@@ -7,7 +7,7 @@
     <properties url="file:///E:\livecode\hexagon-boot-live\live-ep-repository\src\test\resources\application.properties"/>
 
     <!--id:必选，上下文id，用于在生成错误时提示-->
-    <context id="mysql" targetRuntime="MyBatis3">
+    <configContext id="mysql" targetRuntime="MyBatis3">
 
         <!-- 生成的Java文件的编码 -->
         <property name="javaFileEncoding" value="UTF-8"/>
@@ -135,6 +135,6 @@
              -->
             <!--<columnOverride column="username" property="userName" />-->
         </table>
-    </context>
+    </configContext>
 
 </generatorConfiguration>

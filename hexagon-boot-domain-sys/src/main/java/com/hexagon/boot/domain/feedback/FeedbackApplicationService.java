@@ -1,4 +1,4 @@
-package com.hexagon.boot.application.feedback;
+package com.hexagon.boot.domain.feedback;
 
 
 import com.hexagon.boot.domain.feedback.model.FeedBackEntity;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 应用服务器层
  */
 @Service
-public class FeedbackAppService {
+public class FeedbackApplicationService {
 
     @Autowired
     FeedBackRepository repository;

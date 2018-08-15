@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -30,4 +31,5 @@ public class JpaFeedBackRepository extends JpaBaseRepositoryImpl<FeedBackEntity,
     protected FeedBackEntity translateEntity(JpaFeedBackEntity dao) {
         return new FeedBackEntity(dao);
     }
+
 }

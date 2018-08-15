@@ -10,4 +10,7 @@ include 'hexagon-boot-adapter-repository-jpa'   // 端口适配器：jpa 存储
 */
 include 'hexagon-boot-adapter-repository-mybatis'
 include 'hexagon-boot-tools'
+include 'hexagon-boot-endpoint-task'
+include 'hexagon-boot-endpoint-reactive'
+include 'hexagon-boot-domain-generator'
 

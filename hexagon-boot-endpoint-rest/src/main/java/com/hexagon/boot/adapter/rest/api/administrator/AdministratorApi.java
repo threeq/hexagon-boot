@@ -1,6 +1,6 @@
 package com.hexagon.boot.adapter.rest.api.administrator;
 
-import com.hexagon.boot.application.administrator.AdministratorAppService;
+import com.hexagon.boot.domain.administrator.AdministratorApplicationService;
 import com.hexagon.boot.domain.administrator.model.Administrator;
 import com.hexagon.boot.domain.administrator.model.exception.EmailExistException;
 import com.hexagon.boot.domain.administrator.model.exception.MobilePhoneExistException;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/administrator")
 public class AdministratorApi {
     @Autowired
-    private AdministratorAppService administratorAppService;
+    private AdministratorApplicationService administratorApplicationService;
 
     /**
      * TODO 需要处理所有的 业务异常情况，或统一处理
@@ -24,7 +24,7 @@ public class AdministratorApi {
      */
     @PostMapping("/v1")
     public Administrator save(Administrator administrator) throws MobilePhoneExistException, EmailExistException {
-        return administratorAppService.register(administrator);
+        return administratorApplicationService.register(administrator);
     }
 
 }

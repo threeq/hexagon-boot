@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'modules', loadChildren: './modules/modules.module#ModulesModule' },
   { path: 'login', loadChildren: './modules/login/login.module#LoginModule' },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  // { path: '**', redirectTo: 'modules' },
+  // { entityOutputPath: '**', redirectTo: 'modules' },
 ];
 
 const config: ExtraOptions = {

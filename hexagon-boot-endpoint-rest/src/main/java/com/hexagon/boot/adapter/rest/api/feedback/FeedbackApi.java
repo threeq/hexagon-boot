@@ -1,6 +1,6 @@
 package com.hexagon.boot.adapter.rest.api.feedback;
 
-import com.hexagon.boot.application.feedback.FeedbackAppService;
+import com.hexagon.boot.domain.feedback.model.FeedbackAppService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.hexagon.boot.domain.feedback.model.FeedBackEntity;
 import org.springframework.beans.factory.annotation.Autowired;

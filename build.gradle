@@ -47,13 +47,9 @@ subprojects {
         }
     }
 
-    configurations {
-        all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-    }
-
     dependencies {
         compileOnly('org.projectlombok:lombok')
-        compile('org.springframework.boot:spring-boot-starter-undertow')
+        compile("org.slf4j:slf4j-api")
 
         testCompile group: 'junit', name: 'junit'
     }

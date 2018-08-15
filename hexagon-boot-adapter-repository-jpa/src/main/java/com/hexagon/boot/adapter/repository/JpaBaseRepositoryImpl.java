@@ -2,6 +2,7 @@ package com.hexagon.boot.adapter.repository;
 
 import com.hexagon.boot.domain.BaseEntity;
 import com.hexagon.boot.domain.BaseRepository;
+import com.hexagon.boot.domain.feedback.model.FeedBackEntity;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -72,7 +73,7 @@ public abstract class JpaBaseRepositoryImpl<E extends BaseEntity, D extends E> i
     }
 
     @Override
-    public List<E> findAllByIds(Iterable<Long> ids) {
+    public List<E> findAllByIds(List<Long> ids) {
         List<E> target = new ArrayList<>();
         jpaCrudRepository.findAllById(ids).forEach(target::add);
         return target;
@@ -91,5 +92,16 @@ public abstract class JpaBaseRepositoryImpl<E extends BaseEntity, D extends E> i
     @Override
     public void deleteAll() {
         jpaCrudRepository.deleteAll();
+    }
+
+
+    @Override
+    public E findByParam(Map<String, Object> params) {
+        return null;
+    }
+
+    @Override
+    public List<E> findPage(Map<String, Object> params, Integer pageNum, Integer pageSize, String order) {
+        return null;
     }
 }
